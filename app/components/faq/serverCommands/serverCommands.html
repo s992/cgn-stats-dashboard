@@ -1,0 +1,265 @@
+<div id="content-wrapper">
+	<faq-aside></faq-aside>
+	<div id="wrapper">
+		<div class="content">
+			<div class="row">
+				<div class="col-md-12">
+					<p>All commands are listed with their <code>!</code> equivalents, but can also be used prefixed with <code>/</code> (in chat) or <code>sm_</code> (in console). For example, you can use <code>!r</code>, <code>/r</code>, or <code>sm_r</code> interchangeably.</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">Map Commands</h3>
+						</div>
+						<div class="panel-body">
+							<dl>
+								<dt>!maplist</dt>
+								<dd>Displays all maps categorized by their difficulty.</dd>
+								<dt>!mapperlist</dt>
+								<dd>Displays the map authors and the number of maps they have made. In the sub-menu it will list the name of each map.</dd>
+								<dt>!mi / !mapinfo</dt>
+								<dd>
+									<p>
+										Displays information for a map. This information includes:
+										<span class="glyphicon glyph-button" 
+												ng-click="ctrl.visible.mapinfo = !ctrl.visible.mapinfo" 
+												ng-class="{
+													'glyphicon-plus': !ctrl.visible.mapinfo,
+													'glyphicon-minus': ctrl.visible.mapinfo
+												}"></span>
+									</p>
+									<ul ng-class="{ 'hidden': !ctrl.visible.mapinfo }">
+										<li>Author</li>
+										<li>Type (staged/linear)</li>
+										<li>Number of stages/checkpoints</li>
+										<li>Number of bonuses</li>
+										<li>
+											Submenu to view point breakdown
+											<ul>
+												<li>Number of completions</li>
+												<li>Points for map completion</li>
+												<li>Points per stage</li>
+												<li>Total points for stages+map</li>
+											</ul>
+										</li>
+										<li>Point Brackets: Based off of total number of completions. These numbers will constantly be changing.</li>
+										<li>Points for stage record</li>
+										<li>
+											Submenu displaying points per top 10 time
+											<ul>
+												<li>Displays points for rank 1-10, these are based off of map tier. Group points for rank 1-x are added on to these numbers.</li>
+											</ul>
+										</li>
+									</ul>
+								</dd>
+								<dt>!nominate</dt>
+								<dd>Opens a menu where you can nominate a map for the next vote.</dd>
+								<dt>!nextmap</dt>
+								<dd>Displays the next map.</dd>
+								<dt>!points</dt>
+								<dd>Displays the point breakdown for a map. Usage: <code>!points surf_jusched_beta1</code> (name has to be exact)</dd>
+								<dt>!revote</dt>
+								<dd>Allows you to change your vote during the vote for next map.</dd>
+								<dt>!rtv</dt>
+								<dd>Vote to skip the current map</dd>
+								<dt>!ve</dt>
+								<dd>Vote to extend the current map</dd>
+							</dl>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">Timer Commands</h3>
+						</div>
+						<div class="panel-body">
+							<dl>
+								<dt>!cpr</dt>
+								<dd>Compares your personal record to the world record. Alternatively, you can compare someone else's personal record to the world record. Usage: <code>!cpr</code>, <code>!cpr @3</code> (compares rank 3 to world record), <code>!cpr Flaudgin</code></dd>
+								<dt>!cp</dt>
+								<dd>Displays a person's location/progress on a map.</dd>
+								<dt>!gb / !goback</dt>
+								<dd>Sends you back to the previous stage.</dd>
+								<dt>!hud</dt>
+								<dd>Toggles HUD visibility.</dd>
+								<dt>!hudconfig</dt>
+								<dd>
+									<p>
+										Allows you to customize your HUD. CS:GO has an engine limitation of three lines.
+										<span class="glyphicon glyph-button" 
+												ng-click="ctrl.visible.hudconfig = !ctrl.visible.hudconfig" 
+												ng-class="{
+													'glyphicon-plus': !ctrl.visible.hudconfig,
+													'glyphicon-minus': ctrl.visible.hudconfig
+												}"></span>
+									</p>
+									<div ng-class="{ 'hidden': !ctrl.visible.hudconfig }">
+										<p>Arrange every character in the order you'd like information to be displayed on the HUD.</p>
+										<ul>
+											<li>a = Current Time</li>
+											<li>A = Current Time (Reduced)</li>
+											<li>b = Current Activity</li>
+											<li>B = Current Activity (Reduced)</li>
+											<li>c = Current Zone (Reduced)</li>
+											<li>C = Current Zone</li>
+											<li>d = Current Map</li>
+											<li>e = Speed (X,Y)</li>
+											<li>E = Speed (X,Y,Z)</li>
+											<li>f = Active WR</li>
+											<li>g = Active PR</li>
+											<li>i = Spectators</li>
+											<li>j = Show Checkpoint</li>
+											<li>J = Checkpoint on new line</li>
+											<li>k = Reduced Speed (X,Y)</li>
+											<li>K = Reduced Speed (X,Y,Z)</li>
+											<li>l = Active WR(no stage) </li>
+											<li>m = Active PR(no stage)</li>
+											<li>n = Current Zone (Extended)</li>
+											<li>| = Creates | character</li>
+											<li># = Creates new line</li>
+
+										</ul>
+										<p>Example: <code>!hudconfig Aj|i#C|f#k|g</code> will give you the default hud.</p>
+										<p>Example HUD layouts:</p>
+										<p><code>aJ#E#f</code></p>
+										<p><img src="http://i.imgur.com/An5yBJ3.png"></p>
+										<p><code>a|b#e|f#dc</code></p>
+										<p><img src="http://i.imgur.com/JQJ4fxM.png"></p>
+										<p><code>Aj|i#C|f#k|g</code></p>
+										<p><img src="http://i.imgur.com/HL33Gph.png"></p>
+									</div>
+								</dd>
+								<dt>!lookup</dt>
+								<dd>Search for a player's profile when the player isn't currently in the server.</dd>
+								<dt>!p</dt>
+								<dd>
+									<p>
+										Displays profile information for a player. Contains the following information:
+										<span class="glyphicon glyph-button" 
+												ng-click="ctrl.visible.profile = !ctrl.visible.profile" 
+												ng-class="{
+													'glyphicon-plus': !ctrl.visible.profile,
+													'glyphicon-minus': ctrl.visible.profile
+												}"></span>
+									</p>
+									<ul ng-class="{ 'hidden': !ctrl.visible.profile }">
+										<li>Rank x/xxx</li>
+										<li>Total Points</li>
+										<li>Group Points</li>
+										<li>Completion Percentage</li>
+										<li>Maps: x/xxx (points earned for map completions)</li>
+										<li>Stages: x/xxx (points earned for stage completions)</li>
+										<li>Bonuses: x/xxx (points earned for bonus completions)</li>
+										<li>Top Times: xxx (points earned for top 10s)</li>
+										<li>Records</li>
+										<li>Maps: xxx (points for map WRs)</li>
+										<li>Stages: xxx (points for stage WRs)</li>
+										<li>Bonus: xxx (points for bonus WRs)</li>
+										<li>
+											Player Info
+											<ul>
+												<li>Steam ID</li>
+												<li>First time connecting</li>
+												<li>Last time connecting</li>
+												<li>Region</li>
+												<li>Steam community profile link</li>
+												<li>Back to player profile</li>
+											</ul>
+										</li>
+									</ul>
+								</dd>
+								<dt>!pr</dt>
+								<dd>Allows you to check the personal record information for yourself or another player. Usage: <code>!pr</code>, <code>!pr Flaudgin</code></dd>
+								<dt>!r</dt>
+								<dd>Sends you to the start of the map.</dd>
+								<dt>!report</dt>
+								<dd>
+									<p>Allows you to report:</p>
+									<ul>
+										<li>Bugged, glitched, or superboosted times</li>
+										<li>Maps that are broken (have a jail, or something else that needs to be removed or fixed)</li>
+										<li>Maps that have bonuses that aren't zoned</li>
+									</ul>
+								</dd>
+								<dt>!rr</dt>
+								<dd>Displays recently broken world records.</dd>
+								<dt>!rrs</dt>
+								<dd>Displays recently broken stages records.</dd>
+								<dt>!rrb</dt>
+								<dd>Displays recently broken bonus records.</dd>
+								<dt>!st / !surftop</dt>
+								<dd>Displays the current top 50 surfers.</dd>
+								<dt>!sl / !tl</dt>
+								<dd>Allows you to save your current location and velocity in order to practice or learn a map. When you use <code>!sl</code> it will give you a number. With <code>!tl</code> you can teleport to your most recent save, or you can use <code>!tl 4</code> (or any other number) to use any previous saves or saves from another player.</dd>
+								<dt>!teleport</dt>
+								<dd>Sends you to the start of the stage you are currently on.</dd>
+								<dt>!timer</dt>
+								<dd>Toggles your timer. Disabling your timer allows the use of <code>!tl</code>, <code>!fly</code>, and <code>!goto</code>.</dd>
+								<dt>!top / !wr</dt>
+								<dd>Displays the top times for a map.</dd>
+								<dt>!ts / !topstage</dt>
+								<dd>Displays the top times for a specific stage on a map. Usage: <code>!ts 3</code> (or any other number), <code>!ts 2 surf_timewarp</code> (so you can check for maps that aren't currently being played)</dd>
+								<dt>!tb / !topbonus</dt>
+								<dd>Displays the top times for a specific bonus on a map. Usage: <code>!tb 2</code> (or any other number), <code>!tb 1 surf_nyze</code> (so you can check for maps that aren't currently being played)</dd>
+								<dt>!options</dt>
+								<dd>Configure timer options.</dd>
+							</dl>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">Misc Commands</h3>
+						</div>
+						<div class="panel-body">
+							<dl>
+								<dt>!donate</dt>
+								<dd>Brings you to the donation page.</dd>
+								<dt>!fly</dt>
+								<dd>Allows you to noclip through the map.</dd>
+								<dt>!goto</dt>
+								<dd>Allows you to teleport to a specific player.</dd>
+								<dt>!hide</dt>
+								<dd>Allows you to hide other player models. This option is saved on the server.</dd>
+								<dt>!ranks</dt>
+								<dd>Displays the rank titles and their requirements.</dd>
+								<dt>!knife / !guns</dt>
+								<dd>Allows you to change or hide your knife/weapon. This option is saved on the server.</dd>
+								<dt>!myid</dt>
+								<dd>Displays your ID number, based off of the first time you connected to the server.</dd>
+								<dt>!psay</dt>
+								<dd>Allows you to private message an admin.</dd>
+								<dt>!showkeys</dt>
+								<dd>Displays keys pressed for the player you are spectating.</dd>
+								<dt>!showmykeys</dt>
+								<dd>Displays the keys you are pressing.</dd>
+								<dt>!spec</dt>
+								<dd>Sends you to spectator.</dd>
+								<dt>!specinfo</dt>
+								<dd>Allows you to see who is spectating you or another player.</dd>
+								<dt>!hidechat</dt>
+								<dd>Toggles chat visibility.</dd>
+								<dt>!sm / !selfmute</dt>
+								<dd>Mutes a player. Usage: <code>!sm Renegade</code></dd>
+								<dt>!su / !selfunmute</dt>
+								<dd>Unmutes a player. Usage: <code>!su Renegade</code></dd>
+								<dt>!cm / !checkmute</dt>
+								<dd>Displays a list of muted players.</dd>
+								<dt>!hop / !servers</dt>
+								<dd>Displays a list of available servers and allows you to join the server.</dd>
+							</dl>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,340 @@
+body {
+	color: $default-text;
+	background-color: $lightest-background;
+	font-family: $font-family;
+	height: 100vh;
+}
+
+.row-fluid {
+	clear: both;
+}
+
+a {
+	font-weight: bold;
+	color: $light-grey-text;
+	&:hover, &:active, &:focus {
+		color: $cgn-blue;
+		text-decoration: none;
+	}
+}
+
+.form-group input, .input-group input {
+	background-color: $almost-black-background;
+	border: $grey-border;
+	border-radius: initial;
+	color: $almost-white-text;
+
+	&:focus {
+		border-color: $cgn-blue;
+		box-shadow: none;
+		-webkit-box-shadow: none;
+	}
+}
+
+.no-top-border {
+	border-top: none !important;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+	background-color: $table-stripe;
+}
+
+.progress {
+	&.player-progress {
+		height: 4px;
+		margin: 0;
+		background-color: $grey-border-color;
+	}
+
+	.progress-bar {
+		background-color: $cgn-blue;
+
+		&-success {
+			background-color: $map-color;
+		}
+
+		&-info {
+			background-color: $stage-color;
+		}
+
+		&-bonus {
+			background-color: $bonus-color;
+		}
+
+		&-warning {
+			background-color: $orange;
+		}
+	}
+}
+
+.label {
+	color: $almost-white-text;
+
+	&-success {
+		background-color: $map-color;
+	}
+
+	&-info {
+		background-color: $stage-color;
+	}
+
+	&-bonus {
+		background-color: $bonus-color;
+	}
+
+	&-warning {
+		background-color: $orange;
+	}
+}
+
+.btn {
+	color: $almost-white-text;
+	border: none;
+
+	&-success {
+		background-color: $map-color;
+	}
+
+	&-info {
+		background-color: $stage-color;
+	}
+
+	&-bonus {
+		background-color: $bonus-color;
+	}
+
+	&-warning {
+		background-color: $orange;
+	}
+}
+
+.time-diff {
+	color: $red;
+}
+
+.green-text {
+	color: $map-color;
+	font-weight: bold;
+}
+
+.has-feedback {
+	/* Remove Internet Explorer native clear button */
+	input::-ms-clear {
+		display: none;
+	}
+
+	&[class*='col-md-'] .form-control-feedback {
+		right: 18px;
+	}
+
+	.form-control-clear {
+		pointer-events: auto;
+
+		&:hover {
+			color: $red;
+			cursor: pointer;
+		}
+	}
+}
+
+.completion-toggle {
+	a {
+		font-weight: bold;
+
+		&.completion-toggle-muted {
+			opacity: 0.3;
+		}
+
+		&:active, &:focus, &:hover {
+			color: $almost-white-text;
+			text-decoration: none;
+		}
+	}
+}
+
+tr.expando-table-link {
+	background-color: inherit !important;
+
+	a {
+		display: block;
+		padding: 10px;
+
+		&:hover {
+			text-decoration: none;
+			background-color: $grey-border-color;
+		}
+	}
+}
+
+// attempt to use the same colors used ingame.. tweaked a few of them because they were waay too bright.
+.rank-tag {
+	&-unranked { color: $csgo-1; }
+	&-new { color: $csgo-1; }
+	&-noob { color: $csgo-8; }
+	&-beginner { color: $csgo-8; }
+	&-rookie { color: $csgo-13; }
+	&-amateur { color: $csgo-10; }
+	&-mediocre { color: $csgo-10; }
+	&-decent { color: rgba($csgo-6, 0.5); }
+	&-intermediate { color: rgba($csgo-6, 0.5); }
+	&-competent { color: rgba($csgo-6, 0.5); }
+	&-skilled { color: $csgo-11; }
+	&-hotshot { color: $csgo-11; }
+	&-buttery { color: rgba($csgo-4, 0.5); }
+	&-pro { color: rgba($csgo-4, 0.5); }
+	&-expert { color: $csgo-11; }
+	&-veteran { color: $csgo-12; }
+	&-elite { color: $csgo-15; }
+	&-master { color: $csgo-7; }
+	&-legend { color: $csgo-11; }
+}
+
+.sortable-table-header:hover {
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+.table {
+	&> thead > tr > th, 
+	&> tbody > tr > th, 
+	&> tfoot > tr > th, 
+	&> thead > tr > td, 
+	&> tbody > tr > td,
+	&> tfoot > tr > td {
+		vertical-align: middle;
+	}
+
+	td {
+		word-wrap: break-word;
+		word-break: break-all;
+		white-space: normal;
+	}
+
+	a.block {
+		display: block;
+	}
+}
+
+.truncate-tooltip {
+	text-transform: none;
+}
+
+.embedded {
+	padding: 30px;
+
+	#sidebar {
+		display: none !important;
+	}
+
+	#wrapper {
+		margin-left: 0 !important;
+	}
+
+	.content {
+		padding: 10px !important;
+	}
+}
+
+@media (max-width: 767px) {
+	#sidebar, .profile-bar {
+		display: none !important;
+	}
+
+	#wrapper {
+		margin-left: 0 !important;
+	}
+
+	.content {
+		padding: 10px !important;
+	}
+
+	.navbar-form {
+		display: none !important;
+	}
+
+	.navbar-default .navbar-toggle {
+		border: none;
+
+		&:active, &:focus {
+			background-color: $grey-border-color;
+		}
+	}
+
+	.table td {
+		word-wrap: initial;
+		word-break: initial;
+		white-space: initial;
+	}
+
+	.panel-body {
+		overflow-x: scroll;
+	}
+
+	.label.pull-right {
+		display: block;
+		float: none !important;
+		margin-top: 10px;
+	}
+}
+
+dd {
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+	border-bottom: $grey-border;
+
+	&:last-child {
+		margin-bottom: 0;
+		padding-bottom: 0;
+		border-bottom: none;
+	}
+}
+
+code {
+	background-color: $dark-background;
+	color: $cgn-blue;
+}
+
+.glyph-button {
+	color: #fff;
+
+	&:hover {
+		cursor: pointer;
+		color: $cgn-blue;
+	}
+}
+
+.glyph-delete:hover {
+	cursor: pointer;
+	color: $red;
+}
+
+.alert.alert-http-error {
+	background-color: $red;
+	border-color: $grey-border-color;
+	color: $white-text;
+}
+
+.ng-toast span.ng-toast__message__count {
+	display: none;
+}
+
+.close:hover {
+	color: #fff;
+}
+
+#content-wrapper {
+	margin-top: 20px;
+
+	#wrapper {
+		margin: 0 0 0 240px;
+		overflow: auto; // hack to get sidebar float working
+	}
+
+	.content {
+		padding-top: 0;
+	}
+}
+
+.navbar {
+	margin-bottom: 0;
+}

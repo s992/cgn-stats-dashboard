@@ -1,0 +1,9 @@
+jspm_packages/
+node_modules/
+dist/
+sftp-config.json
+npm-debug.log
+.htaccess
+server.js
+dist.zip
+*.zip

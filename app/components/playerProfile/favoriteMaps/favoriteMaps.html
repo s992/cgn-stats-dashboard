@@ -1,0 +1,23 @@
+<div class="panel panel-default" ng-if="maps.length">
+	<div class="panel-heading">
+		<h3 class="panel-title">Favorite Maps</h3>
+	</div>
+	<div class="panel-body">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Time</th>
+					<th class="text-center">Played</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="map in maps">
+					<td><a ng-href="#/map/{{:: map.id }}">{{:: map.name }}</a></td>
+					<td>{{:: map.time | formatTimePlayed }}</td>
+					<td class="text-center">{{:: map.timesPlayed }}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

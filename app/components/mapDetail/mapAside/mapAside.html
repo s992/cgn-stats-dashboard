@@ -1,0 +1,11 @@
+<aside id="sidebar" class="profile-sidebar">
+	<ul class="nav side-stats">
+		<li class="no-top-border">
+			<span class="nav-label">Recent Activity</span>
+			<div spinner class="pull-right" ng-if="!asideCtrl.map.activity.length"></div>
+		</li>
+	</ul>
+	<ul class="nav nav-content activity-feed">
+		<li activity-feed-item="act" ng-repeat="act in asideCtrl.map.activity">
+	</ul>
+</aside>

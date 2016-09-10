@@ -1,0 +1,46 @@
+<div id="content-wrapper">
+	<home-aside></home-aside>
+	<div id="wrapper">
+		<div class="content">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="panel panel-default">
+						<div class="panel-heading blue-panel">
+							<h3 class="panel-title">Players</h3>
+						</div>
+						<div class="panel-body">
+							<div spinner class="spinner-center" ng-if="!ctrl.players.loaded && ctrl.players.loading"></div>
+							<table class="table table-striped" ng-if="ctrl.players.records.length">
+								<thead>
+									<tr>
+										<th class="col-lg-1">Rank</th>
+										<th class="col-lg-1">Tag</th>
+										<th class="col-lg-5">Name</th>
+										<th class="col-lg-1">Points</th>
+										<th class="col-lg-1">Percent Complete</th>
+										<th class="col-lg-1">Maps Completed</th>
+										<th class="col-lg-1">Stages Completed</th>
+										<th class="col-lg-1">Bonuses Completed</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr ng-repeat="player in ctrl.players.records">
+										<td>{{:: player.rank }}</td>
+										<td class="rank-tag-{{:: player.tag.toLowerCase() }}">{{:: player.tag }}</td>
+										<td><a ng-href="#/player/{{:: player.id }}">{{:: player.name }}</a></td>
+										<td>{{:: player.points }}</td>
+										<td>{{:: player.percentCompletion }}%</td>
+										<td>{{:: player.mapsCompleted }}</td>
+										<td>{{:: player.stagesCompleted }}</td>
+										<td>{{:: player.bonusesCompleted }}</td>
+									</tr>
+								</tbody>
+								<tfoot pageable-table-footer record-set="ctrl.players" parent-columns="8"></tfoot>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

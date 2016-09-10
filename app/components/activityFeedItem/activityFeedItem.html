@@ -1,0 +1,10 @@
+<div class="meta {{:: activityItemCtrl.getType() }}-record">
+	<a ng-href="#/player/{{:: activityItemCtrl.activity.id }}">{{:: activityItemCtrl.activity.name }}</a>
+</div>
+<div class="feed-message">
+	{{:: activityItemCtrl.getMessage() }}
+	<a ng-href="#/map/{{:: activityItemCtrl.activity.mapid }}">{{:: activityItemCtrl.activity.mapname }}</a>
+	<span class="activity-date">
+		{{:: activityItemCtrl.activity.activityDate | relativeTime }}
+	</span>
+</div>

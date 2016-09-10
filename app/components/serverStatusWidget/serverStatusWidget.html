@@ -1,0 +1,24 @@
+<ul class="nav side-stats">
+	<li class="no-top-border">
+		<span class="nav-label">Server Status</span>
+		<div spinner class="pull-right" ng-if="!statusCtrl.servers.length"></div>
+		<div class="pull-right glyph-button" ng-if="statusCtrl.servers.length" ng-click="statusCtrl.refreshServers()">
+			<span class="glyphicon glyphicon-refresh"></span>
+		</div>
+	</li>
+</ul>
+<ul class="nav nav-content server-status">
+	<li ng-repeat="server in statusCtrl.servers" ng-class="{
+		'status-online': server.online,
+		'status-offline': !server.online,
+		'active': statusCtrl.isActive( '/server/{{ server.id }}' )
+	}">
+		<a class="server-block" href="#/server/{{ server.id }}">
+			<div><span class="nav-label">{{ server.name }}</span></div>
+			<div ng-if="server.online">
+				<small>Map: {{ server.map }}</small><br>
+				<small>Players: {{ server.players.length }} / {{ server.maxPlayers || 0 }}</small>
+			</div>
+		</a>
+	</li>
+</ul>

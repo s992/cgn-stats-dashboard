@@ -1,0 +1,16 @@
+<aside id="sidebar">
+	<steam-auth-widget></steam-auth-widget>
+	<server-status-widget servers="asideCtrl.servers"></server-status-widget>
+	<ul class="nav side-stats">
+		<li class="no-top-border">
+			<span class="nav-label">Recent Activity</span>
+			<div spinner class="pull-right" ng-if="!asideCtrl.activity.length"></div>
+			<div class="pull-right glyph-button" ng-if="asideCtrl.activity.length" ng-click="asideCtrl.refreshActivity()">
+				<span class="glyphicon glyphicon-refresh"></span>
+			</div>
+		</li>
+	</ul>
+	<ul class="nav nav-content activity-feed">
+		<li activity-feed-item="act" ng-repeat="act in asideCtrl.activity">
+	</ul>
+</aside>

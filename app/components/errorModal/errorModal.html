@@ -1,0 +1,11 @@
+<div class="modal-header">
+	<button type="button" class="close" ng-click="ctrl.close()">&times;</button>
+	<h4 class="modal-title">Uh-oh!</h4>
+</div>
+<div class="modal-body">
+	<p>Looks like we ran into an error. If you'd like to report this error, please head to <a href="http://forum.carbongaming.net/forms/statistics-panel-report.6/respond" target="_blank">this link</a> and paste the following error code into the form:</p>
+	<pre>{{ ctrl.error }}</pre>
+</div>
+<div class="modal-footer">
+	<button type="button" class="btn btn-success" ng-click="ctrl.close()">Got it!</button>
+</div>

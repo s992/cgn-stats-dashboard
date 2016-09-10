@@ -1,0 +1,27 @@
+.server-top-maps {
+	[server-top-maps] {
+		height: 500px;
+	}
+
+	circle {
+		fill-opacity: 0.5;
+
+		&:hover {
+			cursor: pointer;
+		}
+	}
+
+	.axis {
+		text {
+			font-family: $font-family;
+			font-size: 12px;
+			fill: $default-text
+		}
+
+		path, line {
+			fill: none;
+			stroke: $grey-border-color;
+			shape-rendering: crispEdges;
+		}
+	}
+}

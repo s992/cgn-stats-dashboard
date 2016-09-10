@@ -1,0 +1,25 @@
+@import "vars";
+@import "base";
+@import "navbar";
+@import "panel";
+@import "sidebar";
+@import "map";
+@import "runviewer";
+@import "qtip";
+@import "serverList";
+@import "servertopmaps";
+@import "playertrends";
+@import "spinner";
+@import "modal";
+@import "profile";
+@import "footer";
+
+#wrapper {
+	margin: -20px 0 0 240px;
+	padding: 0;
+	position: relative;
+	min-height: 100%;
+}
+.content {
+	padding: 25px 40px 40px 40px;
+}

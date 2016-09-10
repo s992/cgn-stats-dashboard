@@ -1,0 +1,90 @@
+<div id="content-wrapper">
+	<home-aside></home-aside>
+	<div id="wrapper">
+		<div class="content">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="panel panel-default">
+						<div class="panel-heading blue-panel">
+							<h3 class="panel-title">Maps</h3>
+						</div>
+						<div class="panel-body">
+							<div spinner class="spinner-center" ng-if="!ctrl.maps.loaded && ctrl.maps.loading"></div>
+							<table class="table table-striped" ng-if="ctrl.maps.records.length">
+								<thead>
+									<tr>
+										<th sortable-table-header
+											sorter="ctrl.setSort('name')"
+											record-set="ctrl.maps"
+											column-title="Name"
+											column-name="name"
+											class="col-lg-2">
+										</th>
+										<th sortable-table-header
+											sorter="ctrl.setSort('tier')"
+											record-set="ctrl.maps"
+											column-title="Tier"
+											column-name="tier"
+											class="col-lg-1">
+										</th>
+										<th sortable-table-header
+											sorter="ctrl.setSort('type')"
+											record-set="ctrl.maps"
+											column-title="Type"
+											column-name="type"
+											class="col-lg-1">
+										</th>
+										<th sortable-table-header
+											sorter="ctrl.setSort('checkpoints')"
+											record-set="ctrl.maps"
+											column-title="CPs"
+											column-name="checkpoints"
+											class="col-lg-1">
+										</th>
+										<th sortable-table-header
+											sorter="ctrl.setSort('bonuses')"
+											record-set="ctrl.maps"
+											column-title="Bonuses"
+											column-name="bonuses"
+											class="col-lg-2">
+										</th>
+										<th sortable-table-header
+											sorter="ctrl.setSort('completions')"
+											record-set="ctrl.maps"
+											column-title="Completions"
+											column-name="completions"
+											class="col-lg-2">
+										</th>
+										<th class="col-lg-3">WR</th>
+										<th class="text-center">DL</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr ng-repeat="map in ctrl.maps.records">
+										<td><a ng-href="#/map/{{:: map.id }}">{{:: map.name }}</a></td>
+										<td>{{:: map.tier }}</td>
+										<td>{{:: map.type }}</td>
+										<td>{{:: map.checkpoints }}</td>
+										<td>{{:: map.bonuses }}</td>
+										<td>{{:: map.completions }}</td>
+										<td>{{:: map.wr | formatTime }} (<a ng-href="#/player/{{:: map.wrPlayerId }}">{{:: map.wrPlayerName }}</a>)</td>
+										<td class="text-center">
+											<a class="block" ng-href="http://talldwarfs-public.sharepoint.com/Pages/fastdl/maps/{{:: map.name }}.bsp.bz2">
+												<span class="glyphicon glyphicon-download-alt"></span>
+											</a>
+										</td>
+									</tr>
+								</tbody>
+								<tfoot pageable-table-footer record-set="ctrl.maps" parent-columns="8"></tfoot>
+							</table>
+						</div>
+						<div panel-footer-search 
+								search="ctrl.maps.search( searchString )" 
+								search-placeholder="Search by map name, tier (as t6), type (as linear or staged), or a combination of the three..">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

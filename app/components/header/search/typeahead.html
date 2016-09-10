@@ -1,0 +1,6 @@
+<a tabindex="-1">
+	<span ng-if="match.model.type == 'player'" class="label label-info">R {{ match.model.rank }}</span>
+	<span ng-if="match.model.type == 'map'" class="label label-success">{{ match.model.mapType.substring(0,1).toUpperCase() }}</span>
+	<span ng-if="match.model.type == 'map'" class="label label-warning">T{{ match.model.tier }}</span>
+	<span bind-html-unsafe="match.label | typeaheadHighlight:query"></span>
+</a>

@@ -1,0 +1,72 @@
+<div class="new-profile">
+	<player-header player="ctrl.player" ng-if="ctrl.player.name"></player-header>
+	<div id="content-wrapper">
+		<player-aside profile="ctrl.player"></player-aside>
+		<div id="wrapper">
+			<div class="content">
+				<div class="row">
+					<div class="col-lg-6">
+						<player-maps
+							maps="ctrl.player.completions.map"
+							incomplete-maps="ctrl.player.incomplete.map"
+							map-count="ctrl.player.completionCounts.map"
+							player-id="ctrl.player.id">
+						</player-maps>
+					</div>
+					<div class="col-lg-6">
+						<player-checkpoints
+							checkpoints="ctrl.player.completions.stage"
+							incomplete-checkpoints="ctrl.player.incomplete.stage"
+							type="Stage"
+							header-title="Stages"
+							key="checkpoints"
+							bar-class="info"
+							checkpoint-count="ctrl.player.completionCounts.stage">
+						</player-checkpoints>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-6">
+						<player-checkpoints
+							checkpoints="ctrl.player.completions.bonus"
+							incomplete-checkpoints="ctrl.player.incomplete.bonus"
+							type="Bonus"
+							header-title="Bonuses"
+							key="bonuses"
+							bar-class="bonus"
+							checkpoint-count="ctrl.player.completionCounts.bonus">
+						</player-checkpoints>
+					</div>
+					<div class="col-lg-6">
+						<favorite-maps maps="ctrl.player.favoriteMaps"></favorite-maps>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-4 col-md-12">
+						<player-records
+							records="ctrl.player.records.map"
+							header-title="WR"
+							record-count="ctrl.player.recordCounts.map">
+						</player-records>
+					</div>
+					<div class="col-lg-4 col-md-12">
+						<player-records
+							records="ctrl.player.records.stage"
+							header-title="WRCP"
+							checkpoint-column="CP"
+							record-count="ctrl.player.recordCounts.stage">
+						</player-records>
+					</div>
+					<div class="col-lg-4 col-md-12">
+						<player-records
+							records="ctrl.player.records.bonus"
+							header-title="WRB"
+							checkpoint-column="B"
+							record-count="ctrl.player.recordCounts.bonus">
+						</player-records>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

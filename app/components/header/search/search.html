@@ -1,0 +1,23 @@
+<form class="navbar-form navbar-right">
+	<div class="input-group has-feedback">
+		<input type="text" 
+				class="form-control" 
+				placeholder="Search for players or maps.." 
+				id="navbar-search" 
+				autocomplete="off"
+				ng-model="searchCtrl.search" 
+				typeahead="result as result.name for result in searchCtrl.getSearchResults( $viewValue )"
+				typeahead-wait-ms="300"
+				typeahead-loading="searchCtrl.searching"
+				typeahead-template-url="app/components/header/search/typeahead.html"
+				typeahead-on-select="searchCtrl.navigate( $item, $model, $label )">
+		<span class="glyphicon glyphicon-search form-control-feedback"
+				ng-show="!searchCtrl.search.length"></span>
+		<span class="glyphicon glyphicon-remove form-control-feedback form-control-clear" 
+				ng-show="searchCtrl.search.length && !searchCtrl.searching" 
+				ng-click="searchCtrl.reset()"></span>
+		<span class="form-control-feedback" 
+				ng-show="searchCtrl.searching" 
+				spinner mini="true"></span>
+	</div>
+</form>

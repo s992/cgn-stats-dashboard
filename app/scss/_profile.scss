@@ -1,0 +1,144 @@
+.new-profile {
+	margin-top: 20px;
+
+	h1, h2, h3 {
+		color: $almost-white-text;
+	}
+
+	.profile-avatar {
+		display: inline-block;
+		width: 140px;
+		margin-left: 80px;
+		margin-right: 30px;
+
+		img {
+			width: 140px;
+		}
+	}
+
+	.profile-name {
+		display: inline-block;
+		vertical-align: middle;
+		height: 140px;
+
+		.badge {
+			color: $almost-white-text;
+
+			&.rank-tag {
+				&-unranked { background-color: $csgo-1; color: $dark-background }
+				&-new { background-color: $csgo-1; color: $dark-background }
+				&-noob { background-color: $csgo-8; color: $dark-background }
+				&-beginner { background-color: $csgo-8; color: $dark-background }
+				&-rookie { background-color: $csgo-13; color: $dark-background }
+				&-amateur { background-color: $csgo-10; color: $dark-background }
+				&-mediocre { background-color: $csgo-10; color: $dark-background }
+				&-decent { background-color: rgba($csgo-6, 0.5); }
+				&-intermediate { background-color: rgba($csgo-6, 0.5); }
+				&-competent { background-color: rgba($csgo-6, 0.5); }
+				&-skilled { background-color: $csgo-11; }
+				&-hotshot { background-color: $csgo-11; }
+				&-buttery { background-color: rgba($csgo-4, 0.5); }
+				&-pro { background-color: rgba($csgo-4, 0.5); }
+				&-expert { background-color: $csgo-11; }
+				&-veteran { background-color: $csgo-12; }
+				&-elite { background-color: $csgo-15; }
+				&-master { background-color: $csgo-7; }
+				&-legend { background-color: $csgo-11; }
+			}
+
+			&.group-tag {
+				&-director { background-color: $red; }
+				&-serverleader { background-color: $online-indicator; }
+				&-serveradmin { background-color: $cgn-blue; }
+				&-headadmin { background-color: $cgn-blue; }
+			}
+		}
+
+		.meta {
+			margin-top: 10px;
+		}
+	}
+
+	.profile-bar {
+		background-color: $dark-background;
+		margin-top: 20px;
+		padding: 0 80px;
+
+		ul.nav li {
+			padding-bottom: 20px;
+			text-align: center;
+
+			a {
+				font-weight: normal;
+				color: $default-text;
+
+				&:hover, &:active, &:focus {
+					background-color: initial;
+					color: $cgn-blue;
+
+					h3 {
+						color: $cgn-blue;
+					}
+				}
+			}
+		}
+	}
+
+	#content-wrapper {
+		margin-top: 20px;
+
+		#sidebar.profile-sidebar {
+			top: initial;
+			position: relative;
+		}
+
+		#wrapper {
+			margin: 0 0 0 240px;
+		}
+
+		.content {
+			padding-top: 0;
+		}
+	}
+}
+
+.new-profile.map-profile {
+	.profile-name {
+		margin-left: 100px;
+		height: auto;
+	}
+
+	&.run-viewer-profile .profile-bar ul li {
+		padding-bottom: 0;
+	}
+}
+
+@media (max-width: 1150px) {
+	.profile-bar h3.time-played {
+		font-size: 20px;
+	}
+}
+
+@media (max-width: 1025px) {
+	.profile-bar h3.time-played {
+		font-size: 18px;
+	}
+}
+
+@media (max-width: 955px) {
+	.profile-bar h3.time-played {
+		font-size: 16px;
+	}
+}
+
+@media (max-width: 870px) {
+	.profile-bar h3.time-played {
+		font-size: 14px;
+	}
+}
+
+@media (max-width: 800px) {
+	.profile-bar h3.time-played {
+		font-size: 12px;
+	}
+}

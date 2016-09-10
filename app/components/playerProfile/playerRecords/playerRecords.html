@@ -1,0 +1,29 @@
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title">{{ recordCtrl.headerTitle }}
+		<span class="label label-default pull-right" ng-if="recordCtrl.records.records.length">{{ recordCtrl.recordCount }}</span></h3>
+	</div>
+	<div class="panel-body">
+		<div spinner class="spinner-center" ng-if="!recordCtrl.records.loaded && recordCtrl.records.loading"></div>
+		<table class="table table-striped" ng-if="recordCtrl.records.records.length">
+			<thead>
+				<tr>
+					<th>Map</th>
+					<th ng-if="recordCtrl.checkpointColumn.length">{{:: recordCtrl.checkpointColumn }}</th>
+					<th>Time</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="record in recordCtrl.records.records">
+					<td><a href="#/map/{{:: record.id }}">{{:: record.name }}</a></td>
+					<td ng-if="recordCtrl.checkpointColumn.length">{{:: record.checkpoint }}</td>
+					<td>{{:: record.time | formatTime }}</td>
+				</tr>
+			</tbody>
+			<tfoot pageable-table-footer record-set="recordCtrl.records" parent-columns="{{ recordCtrl.checkpointColumn.length ? 3 : 2 }}"></tfoot>
+		</table>
+		<div ng-if="recordCtrl.records.loaded && !recordCtrl.records.records.length">
+			No Records
+		</div>
+	</div>
+</div>

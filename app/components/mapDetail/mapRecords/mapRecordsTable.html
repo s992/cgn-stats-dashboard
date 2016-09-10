@@ -1,0 +1,19 @@
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th class="text-center" colspan="3">{{:: tableHeading }}</th>
+		</tr>
+		<tr>
+			<th>Name</th>
+			<th class="text-center">{{:: columnHeading }}</th>
+			<th>Time</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="cp in records">
+			<td><a ng-href="#/player/{{:: cp.id }}">{{:: cp.name }}</a></td>
+			<td class="text-center">{{:: cp.checkpoint }}</td>
+			<td>{{:: cp.time | formatTime }}</td>
+		</tr>
+	</tbody>
+</table>

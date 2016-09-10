@@ -1,0 +1,25 @@
+<div class="panel-footer">
+	<div class="row">
+		<div class="form-group" ng-class="{
+			'has-feedback': footerSearchCtrl.searchModel.query.length,
+			'col-md-10': footerSearchCtrl.enableFindMe && footerSearchCtrl.auth.loggedIn,
+			'col-md-12': !footerSearchCtrl.enableFindMe || !footerSearchCtrl.auth.loggedIn
+		}">
+			<input type="text" 
+					class="form-control" 
+					placeholder="{{ footerSearchCtrl.searchPlaceholder }}" 
+					ng-model="footerSearchCtrl.searchModel.query" 
+					ng-change="footerSearchCtrl.search({ searchString: footerSearchCtrl.searchModel.query })" 
+					ng-model-options="footerSearchCtrl.searchOptions">
+			<span class="glyphicon glyphicon-remove form-control-feedback form-control-clear" 
+					ng-show="footerSearchCtrl.searchModel.query.length" 
+					ng-click="footerSearchCtrl.reset()"></span>
+		</div>
+		<div class="col-md-2" ng-if="footerSearchCtrl.enableFindMe && footerSearchCtrl.auth.loggedIn">
+			<button
+				type="button"
+				class="btn btn-info"
+				ng-click="footerSearchCtrl.searchForLoggedInPlayer()">{{ footerSearchCtrl.findMeText }}</button>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,30 @@
+.player-trends {
+	[server-player-trends] {
+		height: 400px;
+	}
+
+	circle {
+		fill-opacity: 0.5;
+		fill: $cgn-blue;
+	}
+
+	.trend {
+		stroke: $cgn-blue;
+		stroke-width: 2px;
+		fill: none;
+	}
+
+	.axis {
+		text {
+			font-family: $font-family;
+			font-size: 12px;
+			fill: $default-text
+		}
+
+		path, line {
+			fill: none;
+			stroke: $grey-border-color;
+			shape-rendering: crispEdges;
+		}
+	}
+}

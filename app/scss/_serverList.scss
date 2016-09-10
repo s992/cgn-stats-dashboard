@@ -1,0 +1,13 @@
+.server-connected-players {
+	border-left: $grey-border;
+}
+
+.server-details {
+	.status-online {
+		color: $online-indicator;
+	}
+
+	.status-offline {
+		color: $offline-indicator;
+	}
+}

@@ -1,0 +1,39 @@
+<div id="content-wrapper">
+	<server-detail-aside></server-detail-aside>
+	<div id="wrapper">
+		<div class="content">
+			<div class="row">
+				<div class="col-lg-12">
+					<server-panel server="ctrl.server"></server-panel>
+				</div>
+			</div>
+			<div class="row hidden-xs" ng-if="ctrl.server.playerGraph">
+				<div class="col-lg-12">
+					<div class="panel panel-default">
+						<div class="panel-heading"><h3 class="panel-title">Players Trends Past 24H</h3></div>
+						<div class="panel-body player-trends">
+							<div server-player-trends players="ctrl.server.playerGraph"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row hidden-xs" ng-if="ctrl.server.topMaps">
+				<div class="col-lg-12">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">
+								Top 50 Maps Past Week
+								<span class="pull-right glyphicon glyphicon-question-sign" 
+										tooltip-template="'app/components/serverDetail/topMapsTooltip.html'"
+										tooltip-placement="left"></span>
+							</h3>
+						</div>
+						<div class="panel-body server-top-maps">
+							<div server-top-maps maps="ctrl.server.topMaps"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

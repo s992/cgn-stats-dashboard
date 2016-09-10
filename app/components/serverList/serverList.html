@@ -1,0 +1,12 @@
+<div id="content-wrapper">
+	<server-list-aside servers="ctrl.servers"></server-list-aside>
+	<div id="wrapper">
+		<div class="content">
+			<div class="row" ng-repeat="server in ctrl.servers">
+				<div class="col-lg-12">
+					<server-panel server="server" show-detail-link="true"></server-panel>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

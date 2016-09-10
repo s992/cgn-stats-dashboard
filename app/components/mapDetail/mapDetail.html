@@ -1,0 +1,42 @@
+<div class="new-profile map-profile">
+	<map-header map="ctrl.map" ng-if="ctrl.map.name"></map-header>
+	<div id="content-wrapper">
+		<map-aside map="ctrl.map"></map-aside>
+		<div id="wrapper">
+			<div class="content">
+				<div class="row">
+					<div class="col-lg-12">
+						<map-completions completions="ctrl.map.completions" map-id="ctrl.map.id"></map-completions>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-6" ng-if="ctrl.hasRecords()">
+						<map-records checkpoints="ctrl.map.records.checkpoints" bonuses="ctrl.map.records.bonuses"></map-records>
+					</div>
+					<div ng-class="{ 'col-lg-6': ctrl.hasRecords(), 'col-lg-12': !ctrl.hasRecords() }">
+						<map-top-players players="ctrl.map.topPlayers"></map-top-players>
+					</div>
+				</div>
+				<div class="row" ng-if="ctrl.map.name">
+					<div class="col-lg-12">
+						<map-points map="ctrl.map"></map-points>
+					</div>
+				</div>
+		<!-- 		<div class="row">
+					<div class="col-lg-12">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h3 class="panel-title">Video <small class="pull-right">This is a placeholder video until we get actual videos. :)</small></h3>
+							</div>
+							<div class="panel-body">
+								<div class="embed-responsive embed-responsive-16by9">
+									<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/Tn-pNg11azg"></iframe>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div> -->
+			</div>
+		</div>
+	</div>
+</div>

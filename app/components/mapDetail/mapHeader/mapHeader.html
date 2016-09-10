@@ -1,0 +1,35 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="profile-name" ng-if="headerCtrl.map.name">
+				<h1>{{ headerCtrl.map.name }}</h1>
+				<div class="meta" ng-if="headerCtrl.map.playerStats.completionDate && headerCtrl.map.playerStats.rank">
+					<small>You completed this map on {{ headerCtrl.map.playerStats.completionDate | date:"d MMMM yyyy" }} with rank {{ headerCtrl.map.playerStats.rank }}.</small>
+				</div>
+				<div class="meta">
+					<small>Last played on {{ headerCtrl.map.lastPlayed | date:"d MMMM yyyy" }}</small>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="profile-bar">
+	<span ng-if="headerCtrl.skipDetails">&nbsp;</span>
+	<div ng-if="!headerCtrl.skipDetails">
+		<div spinner class="spinner-center-all" ng-if="!headerCtrl.map.name"></div>
+		<ul class="nav nav-pills nav-justified" ng-if="headerCtrl.map.name">
+			<li><h3>{{ headerCtrl.map.tier }}</h3><small>Tier</small></li>
+			<li><h3>{{ headerCtrl.map.type }}</h3><small>Type</small></li>
+			<li><h3>{{ headerCtrl.map.checkpoints }}</h3><small>{{ headerCtrl.map.type == "Linear" ? "Checkpoints" : "Stages" }}</small></li>
+			<li><h3>{{ headerCtrl.map.bonuses }}</h3><small>Bonuses</small></li>
+			<li><h3>{{ headerCtrl.map.completionCount }}</h3><small>Completions</small></li>
+			<li><h3 truncator truncatee="headerCtrl.map.author" max-length="15" use-tooltip="true"></h3><small>Author</small></li>
+			<li>
+				<a ng-href="http://talldwarfs-public.sharepoint.com/Pages/fastdl/maps/{{ headerCtrl.map.name }}.bsp.bz2">
+					<h3><span class="glyphicon glyphicon-download-alt"></span></h3>
+					<small>Download</small>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>

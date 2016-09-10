@@ -1,0 +1,24 @@
+<aside id="sidebar">
+	<div id="navigation">
+		<steam-auth-widget></steam-auth-widget>
+		<ul class="nav side-stats">
+			<li class="no-top-border">
+				<span class="nav-label">Quick Connect</span>
+				<div spinner class="pull-right" ng-if="!asideCtrl.servers"></div>
+			</li>
+		</ul>
+		<ul class="nav nav-content server-status">
+			<li ng-class="server.online ? 'status-online' : 'status-offline'" ng-repeat="server in asideCtrl.servers">
+				<a class="server-block" ng-href="steam://connect/{{ server.ip }}:{{ server.port }}">
+					<div>
+						<span class="nav-label"><small>{{ server.name }}</small></span>
+						<span ng-if="server.online" class="nav-label pull-right"><span class="glyphicon glyphicon-play-circle"></span></span>
+					</div>
+					<div ng-if="server.online">
+						<small>{{ server.map }}</small>
+					</div>
+				</a>
+			</li>
+		</ul>
+	</div>
+</aside>

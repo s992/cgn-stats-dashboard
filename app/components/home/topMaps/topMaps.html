@@ -1,0 +1,25 @@
+<div class="panel panel-default">
+	<div class="panel-heading blue-panel">
+		<h3 class="panel-title">Top Maps</h3>
+	</div>
+	<div class="panel-body">
+		<div spinner class="spinner-center" ng-if="!mapsCtrl.maps.loaded && mapsCtrl.maps.loading"></div>
+		<table class="table table-striped" ng-if="mapsCtrl.maps.loaded">
+			<thead>
+				<tr>
+					<th>Rank</th>
+					<th>Name</th>
+					<th class="text-center">Completions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="map in mapsCtrl.maps.records">
+					<td>{{:: mapsCtrl.getRank( $index ) }}</td>
+					<td><a ng-href="#/map/{{:: map.id }}">{{:: map.name }}</a></td>
+					<td class="text-center">{{:: map.completions }}</td>
+				</tr>
+			</tbody>
+			<tfoot pageable-table-footer record-set="mapsCtrl.maps" parent-columns="3"></tfoot>
+		</div>
+	</div>
+</div>

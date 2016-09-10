@@ -1,0 +1,27 @@
+<div class="panel panel-default">
+	<div class="panel-heading blue-panel">
+		<h3 class="panel-title">Top Players</h3>
+	</div>
+	<div class="panel-body">
+		<div spinner class="spinner-center" ng-if="!playerCtrl.players.loaded && playerCtrl.players.loading"></div>
+		<table class="table table-striped" ng-if="playerCtrl.players.loaded">
+			<thead>
+				<tr>
+					<th>Rank</th>
+					<th>Name</th>
+					<th>Points</th>
+					<th class="text-center">Percent Complete</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="player in playerCtrl.players.records">
+					<td>{{:: playerCtrl.getRank( $index ) }}</td>
+					<td><a ng-href="#/player/{{:: player.id }}">{{:: player.name }}</a></td>
+					<td>{{:: player.points }}</td>
+					<td class="text-center">{{:: player.percentCompletion }}%</td>
+				</tr>
+			</tbody>
+			<tfoot pageable-table-footer record-set="playerCtrl.players" parent-columns="4"></tfoot>
+		</div>
+	</div>
+</div>

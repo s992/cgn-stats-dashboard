@@ -1,0 +1,38 @@
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title">Completions</h3>
+	</div>
+	<div class="panel-body">
+		<table class="table" ng-if="compCtrl.completions.loaded && compCtrl.completions.records.length">
+			<thead>
+				<tr>
+					<th>Rank</th>
+					<th>Name</th>
+					<th>Time</th>
+					<th>&nbsp;</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="run in compCtrl.completions.records">
+					<td>{{:: run.rank }}</td>
+					<td><a ng-href="#/player/{{:: run.id }}">{{:: run.name }}</a></td>
+					<td>
+						{{:: run.time | formatTime }}
+						<span ng-if="run.rank != 1" class="time-diff">(+{{:: compCtrl.getTimeDiff( run.time, compCtrl.wr ) | formatTime }})</span>
+					</td>
+					<td><a ng-href="#/run?map={{:: compCtrl.mapId }}&player={{:: run.id }}">View Run &raquo;</a></td>
+				</tr>
+			</tbody>
+			<tfoot pageable-table-footer record-set="compCtrl.completions" parent-columns="4"></tfoot>
+		</table>
+		<div ng-if="compCtrl.completions.loaded && !compCtrl.completions.records.length">
+			No Completions
+		</div>
+	</div>
+	<div panel-footer-search 
+			search="compCtrl.completions.search( searchString )" 
+			search-placeholder="Flaudgin, @10, r10, @10-20, r10-20"
+			enable-find-me="true"
+			find-me-text="Find my time">
+	</div>
+</div>

@@ -1,0 +1,37 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="profile-avatar" ng-if="headerCtrl.player.name">
+				<a ng-href="{{ headerCtrl.player.steam.url }}" target="_blank">
+					<img 
+						src="img/default_avatar.png"
+						ng-src="{{ headerCtrl.player.steam.avatar }}"
+						ng-class="{ 'fadeIn': headerCtrl.player.steam.avatar }"
+						class="player-avatar animated">
+				</a>
+			</div>
+			<div class="profile-name" ng-if="headerCtrl.player.name">
+				<h1>{{ headerCtrl.player.name }}</h1>
+				<div class="meta">
+					<small class="badge rank-tag rank-tag-{{ headerCtrl.player.rankTag.toLowerCase() }}">{{ headerCtrl.player.rankTag }}</small>
+					<small class="badge group-tag group-tag-{{ headerCtrl.player.getNormalizedGroup() }}" ng-if="headerCtrl.player.group">{{ headerCtrl.player.group }}</small>
+					| <small><a ng-href="#/players/compare?player={{:: headerCtrl.player.id }}">Compare &raquo;</a></small>
+				</div>
+				<div class="meta">
+					<small>Last seen on {{ headerCtrl.player.lastSeen | date:"d MMMM yyyy" }}</small>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="profile-bar">
+	<ul class="nav nav-pills nav-justified" ng-if="headerCtrl.player.name">
+		<li><h3>{{ headerCtrl.player.rank }}</h3><small>Rank</small></li>
+		<li><h3>{{ headerCtrl.player.points }}</h3><small>Points</small></li>
+		<li><h3>{{ headerCtrl.player.percentCompletion }}%</h3><small>Completion</small></li>
+		<li><h3>{{ headerCtrl.player.recordCounts.map }}</h3><small>WR</small></li>
+		<li><h3>{{ headerCtrl.player.recordCounts.stage }}</h3><small>WRCP</small></li>
+		<li><h3>{{ headerCtrl.player.recordCounts.bonus }}</h3><small>WRB</small></li>
+		<li><h3 class="time-played">{{ headerCtrl.player.timePlayed | formatTimePlayed }}</h3><small>Time Played</small></li>
+	</ul>
+</div>

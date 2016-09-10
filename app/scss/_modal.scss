@@ -1,0 +1,26 @@
+.modal-content {
+	background-color: $light-background;
+
+	.modal-header {
+		background-color: $dark-background;
+		border-color: $grey-border-color;
+
+		.modal-title, .close {
+			color: $white-text;
+			font-weight: bold;
+		}
+	}
+
+	.modal-body {
+		pre {
+			background: $grey-border-color;
+			color: #ccc;
+			border: none;
+		}
+	}
+
+	.modal-footer {
+		background-color: $dark-background;
+		border-color: $grey-border-color;
+	}
+}

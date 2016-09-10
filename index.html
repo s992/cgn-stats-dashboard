@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- ♥ seaN :) -->
+	<title>CGN Stats Dashboard</title>
+	<!-- build:remove -->
+	<link rel="stylesheet" href="jspm_packages/github/twbs/bootstrap@3.3.4/css/bootstrap.css">
+	<link rel="stylesheet" href="css/cgn.css">
+	<link rel="stylesheet" href="css/animate.css">
+	<link rel="stylesheet" href="jspm_packages/github/tameraydin/ngToast@1.5.4/dist/ngToast.css">
+	<script src="jspm_packages/system.js"></script>
+	<script src="config.js"></script>
+	<!-- endbuild -->
+	<!-- inject:build:css -->
+	<!-- endinject -->
+	<script>
+	window.apiUrl = "http://api.dev/v1/surf";
+	</script>
+	<!-- inject:build:js -->
+	<!-- endinject -->
+</head>
+<body>
+	<header ng-if="!embedded"></header>
+	<div ng-class="{ 'embedded': embedded }" ng-view ng-cloak autoscroll></div>
+	<footer class="clearfix" ng-cloak>
+		<a href="http://forum.carbongaming.net/forms/statistics-panel-report.6/respond" target="_blank">Feedback</a>
+		| <a href="http://forum.carbongaming.net" target="_blank">CGN Forum</a>
+		<div class="pull-right">
+			<small><a href="http://steampowered.com" target="_blank">Powered by Steam</a></small>
+		</div>
+	</footer>
+<!-- build:remove -->
+<script>
+System.import("./app/bootstrap").catch(console.error.bind(console));
+</script>
+<!-- endbuild -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-42818145-2', 'auto');
+ga('create', 'UA-52344422-2', 'auto', { name: 'seaN'});
+</script>
+</body>
+</html>

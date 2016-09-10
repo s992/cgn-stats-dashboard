@@ -1,0 +1,54 @@
+.panel.panel-default {
+	background-color: $light-background;
+	border: $grey-border;
+
+	.panel-heading {
+		background-color: $dark-background;
+		border-color: $grey-border-color;
+
+		.panel-title {
+			color: $white-text;
+			font-weight: bold;
+			text-transform: uppercase;
+
+			.tooltip {
+				.tooltip-inner {
+					padding: 10px;
+					max-width: 300px;
+					background-color: $dark-background;
+					border: $grey-border;
+					color: $default-text;
+					text-transform: none;
+					text-align: left;
+				}
+
+				&.left .tooltip-arrow {
+					border-left-color: $grey-border-color;
+				}
+			}
+		}
+		
+		&.blue-panel {
+			border-color: $cgn-blue;
+		}
+	}
+
+	.panel-body {
+		table {
+			margin-bottom: 0;
+
+			&> thead > tr > th, &> tbody > tr > td, &> tbody > tr > th, &> tfoot > tr > td {
+				border-color: $grey-border-color
+			}
+		}
+	}
+
+	.panel-footer {
+		background-color: $dark-background;
+		border-color: $grey-border-color;
+
+		.form-group {
+			margin: 0;
+		}
+	}
+}

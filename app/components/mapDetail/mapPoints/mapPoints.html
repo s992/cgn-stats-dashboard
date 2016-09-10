@@ -1,0 +1,88 @@
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title">Point Awards</h3>
+	</div>
+	<div class="panel-body">
+		<div class="row">
+			<div class="col-md-4">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th class="text-center" colspan="2">Map Points</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Map Completion</td>
+							<td>{{ pointCtrl.map.mapCompletionPoints }}</td>
+						</tr>
+						<tr ng-if="pointCtrl.map.type == 'Staged'">
+							<td>Stage Completion</td>
+							<td>{{ pointCtrl.map.stageCompletionPoints }}</td>
+						</tr>
+						<tr ng-if="pointCtrl.map.bonuses">
+							<td>Bonus Completion</td>
+							<td>{{ pointCtrl.map.bonusCompletionPoints }}</td>
+						</tr>
+						<tr>
+							<td>Total Points</td>
+							<td>{{ pointCtrl.map.totalPoints }}</td>
+						</tr>
+					</tbody>
+				</table>
+				<table class="table table-striped" ng-if="pointCtrl.map.type == 'Staged' || pointCtrl.map.bonuses">
+					<thead>
+						<tr>
+							<th class="text-center" colspan="2">Records</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-if="pointCtrl.map.type == 'Staged'">
+							<td>Stage Record</td>
+							<td>{{ pointCtrl.map.stageRecordPoints }}</td>
+						</tr>
+						<tr ng-if="pointCtrl.map.bonuses">
+							<td>Bonus Record</td>
+							<td>{{ pointCtrl.map.bonusRecordPoints }}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="col-md-4">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th class="text-center" colspan="2">Group Points</th>
+						</tr>
+					</thead>
+					<tbody ng-if="pointCtrl.map.groups.length">
+						<tr ng-repeat="group in pointCtrl.map.groups">
+							<td>Ranks {{ group.lowerLimit }} - {{ group.rank }}</td>
+							<td>{{ group.points }}</td>
+						</tr>
+					</tbody>
+					<tbody ng-if="!pointCtrl.map.groups.length">
+						<tr>
+							<td colspan="2" style="word-break:normal;">This map doesn't have enough completions to be eligible for group points.</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="col-md-4">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th class="text-center" colspan="2">Top 10</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="rankPoints in pointCtrl.map.top10">
+							<td>Rank {{ $index + 1 }}</td>
+							<td>{{ rankPoints }}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

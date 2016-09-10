@@ -1,0 +1,63 @@
+<div class="new-profile map-profile run-viewer-profile">
+	<div class="profile-bar">
+		<ul class="nav nav-pills" ng-if="ctrl.map.name">
+			<li><a ng-href="#/map/{{ ctrl.map.id }}">&larr; Return to {{ ctrl.map.name }}</a></li>
+		</ul>
+	</div>
+	<div id="content-wrapper">
+		<div class="content">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">Add another run</h3>
+						</div>
+						<div class="panel-body run-viewer-search">
+							<div class="form-group has-feedback">
+								<input type="text" 
+									id="searchRuns"
+									class="form-control" 
+									placeholder="Flaudgin or @10 or r10" 
+									id="navbar-search" 
+									autocomplete="off"
+									ng-model="ctrl.search" 
+									typeahead="result as result.name for result in ctrl.getSearchResults( $viewValue )"
+									typeahead-wait-ms="300"
+									typeahead-loading="ctrl.searching"
+									typeahead-template-url="app/components/run/typeahead.html"
+									typeahead-on-select="ctrl.loadRun( $item.id, $label )">
+								<span class="glyphicon glyphicon-search form-control-feedback"
+										ng-show="!ctrl.search.length"></span>
+								<span class="glyphicon glyphicon-remove form-control-feedback form-control-clear" 
+										ng-show="ctrl.search.length && !ctrl.searching" 
+										ng-click="ctrl.reset()"></span>
+								<span class="form-control-feedback" 
+										ng-show="ctrl.searching" 
+										spinner mini="true"></span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">What is this?</h3>
+						</div>
+						<div class="panel-body">
+							<p>Compare map completions against other players by adding them to the graph. Each segment represents a checkpoint or stage.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<div run-viewer runs="ctrl.runs"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

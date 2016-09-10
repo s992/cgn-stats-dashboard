@@ -1,0 +1,152 @@
+#sidebar {
+	position: relative;
+	width: 240px;
+	float: left;
+	top: -20px;
+	color: $almost-white-text;
+	border-right: $grey-border;
+
+	ul {
+		padding-left: 0;
+		margin-bottom: 0;
+		margin-top: 0;
+		list-style: none;
+	}
+
+	.sidebar-header {
+		padding: 20px;
+		text-align: center;
+
+		.player-avatar {
+			margin-bottom: 20px;
+			width: 80px;
+		}
+
+		.sidebar-blurb {
+			line-height: 1.2;
+		}
+
+		.sidebar-avatar {
+			width: 110px;
+		}
+
+		.profile-links {
+			margin-top: 18px;
+		}
+	}
+
+	.side-stats {
+		background: $dark-background;
+		text-align: left;
+
+		li {
+			border-bottom: $grey-border;
+			text-transform: uppercase;
+			color: $almost-white-text;
+			font-weight: bold;
+			padding: 15px 20px;
+
+			&:first-child {
+				border-top: $grey-border;
+			}
+
+			.rank-tag {
+				display: block;
+			}
+		}
+	}
+
+	li.link-block {
+		padding: 0;
+
+		a {
+			padding: 15px 20px;
+			color: $almost-white-text;
+
+			&:hover, &:active, &:focus {
+				background-color: $almost-black-background;
+			}
+		}
+	}
+
+	.nav-content {
+		li {
+			padding: 15px 20px;
+			border-bottom: $grey-border;
+		}
+		.nav-label {
+			font-weight: bold;
+		}
+		a:not(.server-block) {
+			color: $light-grey-text;
+
+			&:hover, &:active, &:focus {
+				color: $cgn-blue;
+				text-decoration: none;
+			}
+		}
+
+		&.server-status {
+			li {
+				padding: 0;
+
+				&.status-online {
+					border-right: 2px solid $online-indicator;
+				}
+
+				&.status-offline {
+					border-right: 2px solid $offline-indicator;
+				}
+
+				a.server-block {
+					padding: 15px 20px;
+
+					&:hover, &:active, &:focus {
+						background-color: $almost-black-background;
+						color: $light-grey-text;
+					}
+				}
+
+				&.active a.server-block {
+					background-color: $almost-black-background;
+				}
+			}
+		}
+
+		&.activity-feed {
+			.meta {
+				border-bottom-width: 1px;
+				border-bottom-style: solid;
+				padding-bottom: 4px;
+				margin-bottom: 4px;
+				word-wrap: break-word;
+				word-break: break-all;
+
+				&.map-record {
+					border-color: $map-color;
+				}
+
+				&.stage-record {
+					border-color: $stage-color;
+				}
+
+				&.bonus-record {
+					border-color: $bonus-color;
+				}
+
+				a {
+					font-weight: bold;
+				}
+			}
+
+			.feed-message {
+				font-size: 12px;
+
+				.activity-date {
+					opacity: 0.3;
+					display: block;
+				}
+			}
+		}
+	}
+}

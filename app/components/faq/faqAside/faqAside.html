@@ -1,0 +1,22 @@
+<aside id="sidebar">
+	<div id="navigation">
+		<steam-auth-widget></steam-auth-widget>
+		<ul class="nav side-stats">
+			<li class="no-top-border">
+				<span class="nav-label">FAQ</span>
+			</li>
+		</ul>
+		<ul class="nav nav-content server-status">
+			<li class="link-block" ng-class="{ 'active': asideCtrl.isActive('/faq/commands') }">
+				<a class="server-block" href="#/faq/commands">
+					<div><span class="nav-label">Server Commands</span></div>
+				</a>
+			</li>
+			<li class="link-block" ng-class="{ 'active': asideCtrl.isActive('/faq/rules') }">
+				<a class="server-block" href="#/faq/rules">
+					<div><span class="nav-label">Server Rules</span></div>
+				</a>
+			</li>
+		</ul>
+	</div>
+</aside>

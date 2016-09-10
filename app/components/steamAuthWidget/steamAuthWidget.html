@@ -1,0 +1,17 @@
+<div class="sidebar-header" ng-if="!authCtrl.auth.loggedIn">
+	<div class="sidebar-blurb">
+		<div ng-if="authCtrl.auth.failedLogin"><p>We were unable to find an account matching your credentials. Please ensure that you are attempting to sign in with the Steam account you use when playing on our servers.</p></div>
+		<a href ng-click="authCtrl.login()" ng-if="!authCtrl.auth.loggingIn">
+			<img src="http://cdn.steamcommunity.com/public/images/signinthroughsteam/sits_small.png">
+		</a>
+		<div spinner class="spinner-center" ng-if="authCtrl.auth.loggingIn"></div>
+	</div>
+</div>
+<div class="sidebar-header" ng-if="authCtrl.auth.loggedIn">
+	<div class="center-block">
+		<a ng-href="#/player/{{:: authCtrl.auth.profile.id }}"><img class="sidebar-avatar" ng-src="{{:: authCtrl.auth.profile.avatar }}"></a>
+	</div>
+	<div class="center-block profile-links">
+		<a ng-href="#/player/{{:: authCtrl.auth.profile.id }}">Profile</a> | <a href ng-click="authCtrl.logout()">Sign Out</a>
+	</div>
+</div>

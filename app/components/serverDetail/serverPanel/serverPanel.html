@@ -1,0 +1,83 @@
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title" ng-if="panelCtrl.server">{{:: panelCtrl.server.name }}</h3>
+		<div spinner ng-if="!panelCtrl.server"></div>
+	</div>
+	<div class="panel-body" ng-if="panelCtrl.server">
+		<div class="row">
+			<div class="col-md-6">
+				<table class="table table-striped server-details">
+					<thead>
+						<tr>
+							<th colspan="2">Server Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-if="panelCtrl.server.online">
+							<th>Current Map</th>
+							<td ng-if="panelCtrl.server.mapId">
+								<a ng-href="#/map/{{:: panelCtrl.server.mapId }}">{{:: panelCtrl.server.map }}</a>
+								 (T{{:: panelCtrl.server.mapTier }} {{:: panelCtrl.server.mapType }})
+							</td>
+							<td ng-if="!panelCtrl.server.mapId">{{:: panelCtrl.server.map }}</td>
+						</tr>
+						<tr ng-if="panelCtrl.server.online">
+							<th>Players</th>
+							<td>{{:: panelCtrl.server.currentPlayers }} / {{:: panelCtrl.server.maxPlayers }}</td>
+						</tr>
+						<tr>
+							<th>IP</th>
+							<td>
+								<a ng-href="steam://connect/{{:: panelCtrl.server.ip }}:{{:: panelCtrl.server.port }}">
+									{{:: panelCtrl.server.ip }}:{{:: panelCtrl.server.port }}
+									<span class="glyphicon glyphicon-play-circle"></span>
+								</a>
+							</td>
+						</tr>
+						<tr>
+							<th>Status</th>
+							<td ng-class="panelCtrl.server.online ? 'status-online' : 'status-offline'">
+								{{:: panelCtrl.server.online ? "Online" : "Offline" }}
+							</td>
+						</tr>
+						<tr class="expando-table-link" ng-if="panelCtrl.showDetailLink && panelCtrl.server.online">
+							<td class="text-center" colspan="2">
+								<a ng-href="#/server/{{:: panelCtrl.server.id }}">View more details <span class=" pull-right glyphicon glyphicon-new-window"></span></a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="col-md-6 server-connected-players">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th colspan="2">Connected Players</th>
+						</tr>
+					</thead>
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Time Connected</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="player in panelCtrl.server.players" ng-show="$index < 5 || panelCtrl.showAllPlayers">
+							<td>{{:: player.name }}</td>
+							<td>{{:: player.time }}</td>
+						</tr>
+						<tr class="expando-table-link" ng-show="panelCtrl.server.players.length > 5 && !panelCtrl.showAllPlayers">
+							<td class="text-center" colspan="2">
+								<a href ng-click="panelCtrl.showAllPlayers = true">
+									<span class="pull-left glyphicon glyphicon-chevron-down"></span>
+									Show all connected players ({{:: panelCtrl.server.players.length - 5 }} more)
+									<span class="pull-right glyphicon glyphicon-chevron-down"></span>
+								</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

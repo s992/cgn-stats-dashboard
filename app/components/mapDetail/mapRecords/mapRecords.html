@@ -1,0 +1,11 @@
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title">Records</h3>
+	</div>
+	<div class="panel-body" ng-if="recordCtrl.checkpoints.length">
+		<map-records-table records="recordCtrl.checkpoints" table-heading="Stages" column-heading="Stage"></map-records-table>
+	</div>
+	<div class="panel-body" ng-if="recordCtrl.bonuses.length">
+		<map-records-table records="recordCtrl.bonuses" table-heading="Bonuses" column-heading="Bonus"></map-records-table>
+	</div>
+</div>

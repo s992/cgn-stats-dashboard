@@ -1,0 +1,8 @@
+{
+	"dev": {
+		"apiUrl": "http://api.dev/v1/surf"
+	},
+	"prod": {
+		"apiUrl": ""
+	}
+}

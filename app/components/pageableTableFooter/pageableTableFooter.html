@@ -1,0 +1,22 @@
+<tfoot>
+	<tr>
+		<td colspan="{{ parentColumns - 1 }}">
+			<button type="button" 
+					class="pull-left btn btn-info btn-xs" 
+					ng-click="records.previousPage()" 
+					ng-if="records.canGoPrevious()">
+						&laquo; Previous
+			</button>
+		</td>
+		<td colspan="1">
+			<button type="button" 
+					class="pull-right btn btn-info btn-xs" 
+					ng-click="records.nextPage()" 
+					ng-if="records.canGoNext()"
+					ng-hide="records.loading">
+						Next &raquo;
+			</button>
+			<div spinner class="pull-right" ng-show="records.loaded && records.loading"></div>
+		</td>
+	</tr>
+</tfoot>

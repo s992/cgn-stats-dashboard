@@ -1,0 +1,109 @@
+<div id="content-wrapper">
+	<home-aside></home-aside>
+	<div id="wrapper">
+		<div class="content">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">Add another player</h3>
+						</div>
+						<div class="panel-body run-viewer-search">
+							<div class="form-group has-feedback">
+								<input type="text" 
+									id="searchRuns"
+									class="form-control" 
+									placeholder="Search for a player.." 
+									id="navbar-search" 
+									autocomplete="off"
+									ng-model="ctrl.search" 
+									typeahead="result as result.name for result in ctrl.getSearchResults( $viewValue )"
+									typeahead-wait-ms="300"
+									typeahead-loading="ctrl.searching"
+									typeahead-template-url="app/components/playerComparison/typeahead.html"
+									typeahead-on-select="ctrl.loadPlayer( $item.id, $label )">
+								<span class="glyphicon glyphicon-search form-control-feedback"
+										ng-show="!ctrl.search.length"></span>
+								<span class="glyphicon glyphicon-remove form-control-feedback form-control-clear" 
+										ng-show="ctrl.search.length && !ctrl.searching" 
+										ng-click="ctrl.reset()"></span>
+								<span class="form-control-feedback" 
+										ng-show="ctrl.searching" 
+										spinner mini="true"></span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">What is this?</h3>
+						</div>
+						<div class="panel-body">
+							<p>Compare players against one another by adding them to the table. The highest value for each field is indicated in <span class="green-text">green</span>.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<p ng-if="!ctrl.players.length">You need to add a player first!</p>
+							<table class="table table-striped" ng-if="ctrl.players.length">
+								<thead>
+									<tr>
+										<th class="col-lg-3">&nbsp;</th>
+										<th class="col-lg-1">Rank</th>
+										<th class="col-lg-1">Points</th>
+										<th class="col-lg-1">Percent Complete</th>
+										<th class="col-lg-1">Maps Completed</th>
+										<th class="col-lg-1">Stages Completed</th>
+										<th class="col-lg-1">Bonuses Completed</th>
+										<th class="col-lg-1">WR</th>
+										<th class="col-lg-1">WRCP</th>
+										<th class="col-lg-1">WRB</th>
+										<th></th>
+									</tr>
+								</thead>
+								<tbody class="player-table">
+									<tr ng-repeat="player in ctrl.players">
+										<td><a ng-href="#/player/{{:: player.id }}">{{:: player.name }}</a></td>
+										<td ng-class="{ 'green-text': ctrl.isBest( player, 'rank', 'min' ) }">
+											{{:: player.rank }}
+										</td>
+										<td ng-class="{ 'green-text': ctrl.isBest( player, 'points', 'max' ) }">
+											{{:: player.points }}
+										</td>
+										<td ng-class="{ 'green-text': ctrl.isBest( player, 'percentCompletion', 'max' ) }">
+											{{:: player.percentCompletion }}%
+										</td>
+										<td ng-class="{ 'green-text': ctrl.isBest( player, 'completionCounts.map', 'max' ) }">
+											{{:: player.completionCounts.map }}
+										</td>
+										<td ng-class="{ 'green-text': ctrl.isBest( player, 'completionCounts.stage', 'max' ) }">
+											{{:: player.completionCounts.stage }}
+										</td>
+										<td ng-class="{ 'green-text': ctrl.isBest( player, 'completionCounts.bonus', 'max' ) }">
+											{{:: player.completionCounts.bonus }}
+										</td>
+										<td ng-class="{ 'green-text': ctrl.isBest( player, 'recordCounts.map', 'max' ) }">
+											{{:: player.recordCounts.map }}
+										</td>
+										<td ng-class="{ 'green-text': ctrl.isBest( player, 'recordCounts.stage', 'max' ) }">
+											{{:: player.recordCounts.stage }}
+										</td>
+										<td ng-class="{ 'green-text': ctrl.isBest( player, 'recordCounts.bonus', 'max' ) }">
+											{{:: player.recordCounts.bonus }}
+										</td>
+										<td><span class="glyphicon glyphicon-remove glyph-delete" ng-click="ctrl.removePlayer(player)"></span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

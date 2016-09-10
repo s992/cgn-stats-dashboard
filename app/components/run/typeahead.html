@@ -1,0 +1,5 @@
+<a tabindex="-1">
+	<span ng-if="match.model.rank" class="label label-success">R{{ match.model.rank }}</span>
+	<span ng-if="match.model.time" class="label label-info">{{ match.model.time | formatTime }}</span>
+	<span bind-html-unsafe="match.label | typeaheadHighlight:query"></span>
+</a>

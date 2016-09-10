@@ -1,0 +1,23 @@
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title">Top Players</h3>
+	</div>
+	<div class="panel-body">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Time</th>
+					<th class="text-center">Played</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="player in topCtrl.players">
+					<td><a ng-href="#/player/{{:: player.id }}">{{:: player.name }}</a></td>
+					<td>{{:: player.time | formatTimePlayed }}</td>
+					<td class="text-center">{{:: player.timesPlayed }}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

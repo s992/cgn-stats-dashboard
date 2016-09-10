@@ -1,0 +1,24 @@
+<nav class="navbar navbar-default">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#/">Carbon Gaming Network</a>
+		</div>
+		<div class="collapse navbar-collapse" collapse="navCollapsed">
+			<ul class="nav navbar-nav">
+				<li ng-class="{ active: headerCtrl.isActive('/players') }"><a href="#/players">Players</a></li>
+				<li ng-class="{ active: headerCtrl.isActive('/maps') }"><a href="#/maps">Maps</a></li>
+				<li ng-class="{ active: headerCtrl.isActive('/servers') }"><a href="#/servers">Servers</a></li>
+				<li ng-class="{ active: headerCtrl.isActive('/faq', true) }"><a href="#/faq/commands">FAQ</a></li>
+				<li><a href="http://forum.carbongaming.net" target="_blank">Forum</a></li>
+			</ul>
+			<header-search></header-search>
+		</div>
+	</div>
+</nav>
+<toast></toast>

@@ -1,0 +1,75 @@
+<div class="panel panel-default">
+	<div class="progress player-progress">
+		<div class="progress-bar progress-bar-success" style="width:{{ mapCtrl.getPercentage() }}%"></div>
+	</div>
+	<div class="panel-heading">
+		<h3 class="panel-title completion-toggle">
+			Maps
+			<a href ng-class="{ 'completion-toggle-muted': !mapCtrl.isSelected('completed') }" ng-click="mapCtrl.showCompleted()">Completed</a>
+			<span class="glyphicon glyphicon-resize-horizontal"></span>
+			<a href ng-class="{ 'completion-toggle-muted': !mapCtrl.isSelected('incomplete') }" ng-click="mapCtrl.showIncomplete()">Incomplete</a>
+			<span class="label label-success pull-right">
+				<span ng-if="mapCtrl.isSelected('completed')">
+					{{ mapCtrl.mapCount }} / {{ mapCtrl.info.maps }}
+				</span>
+				<span ng-if="mapCtrl.isSelected('incomplete')">
+					{{ mapCtrl.info.maps - mapCtrl.mapCount }} / {{ mapCtrl.info.maps }}
+				</span>
+			</span>
+		</h3>
+	</div>
+	<div class="panel-body">
+		<div ng-if="mapCtrl.isSelected('completed')">
+			<div spinner class="spinner-center" ng-if="!mapCtrl.maps.loaded && mapCtrl.maps.loading"></div>
+			<table class="table table-striped" ng-if="mapCtrl.maps.records.length">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Rank</th>
+						<th class="text-center">PR</th>
+						<th class="text-center">&nbsp;</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="map in mapCtrl.maps.records">
+						<td><a ng-href="#/map/{{:: map.id }}">{{:: map.name }}</a></td>
+						<td>{{:: map.rank }}</td>
+						<td class="text-center">{{:: map.time | formatTime }}</td>
+						<td><a ng-href="#/run?map={{:: map.id }}&player={{:: mapCtrl.playerId }}">View Run &raquo;</a></td>
+					</tr>
+				</tbody>
+				<tfoot pageable-table-footer record-set="mapCtrl.maps" parent-columns="4"></tfoot>
+			</table>
+			<div ng-if="mapCtrl.maps.loaded && !mapCtrl.maps.records.length">
+				No Maps Completed
+			</div>
+		</div>
+		<div ng-if="mapCtrl.isSelected('incomplete')">
+			<div spinner class="spinner-center" ng-if="!mapCtrl.incompleteMaps.loaded && mapCtrl.incompleteMaps.loading"></div>
+			<table class="table table-striped" ng-if="mapCtrl.incompleteMaps.records.length">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Tier</th>
+						<th>Type</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="map in mapCtrl.incompleteMaps.records">
+						<td><a ng-href="#/map/{{:: map.id }}">{{:: map.name }}</a></td>
+						<td>{{:: map.tier }}</td>
+						<td>{{:: map.type }}</td>
+					</tr>
+				</tbody>
+				<tfoot pageable-table-footer record-set="mapCtrl.incompleteMaps" parent-columns="3"></tfoot>
+			</table>
+			<div ng-if="mapCtrl.incompleteMaps.loaded && !mapCtrl.incompleteMaps.records.length">
+				All maps completed! (hi Flaudgin)
+			</div>
+		</div>
+	</div>
+	<div panel-footer-search 
+			search="mapCtrl.isSelected('completed') ? mapCtrl.maps.search( searchString ) : mapCtrl.incompleteMaps.search( searchString )" 
+			search-placeholder="Search by name, tier, type, or a combination of all three..">
+	</div>
+</div>

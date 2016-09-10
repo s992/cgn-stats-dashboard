@@ -1,0 +1,78 @@
+nav.navbar-default {
+	background-color: $dark-background;
+	border: $grey-border;
+	border-left: none;
+	border-right: none;
+	border-radius: initial;
+
+	.navbar-brand {
+		background: url(../img/logo.png) no-repeat;
+		width: 225px;
+		display: block;
+		color: $transparent;
+		margin: 0 !important;
+
+		&:hover, &:active, &:focus {
+			color: $transparent;
+		}
+	}
+
+	.navbar-nav > li {
+		&.active > a {
+			color: $cgn-blue;
+			background-color: $lightest-background;
+			border-bottom: 1px solid $cgn-blue;
+
+			&:hover, &:active, &:focus {
+				color: $cgn-blue;
+				background-color: $lightest-background;
+			}
+		}
+
+		&> a {
+			color: $almost-white-text;
+			text-transform: uppercase;
+			font-weight: bold;
+
+			&:hover, &:active, &:focus {
+				background-color: $almost-black-background;
+				color: $white-text;
+			}
+		}
+	}
+
+	.navbar-form {
+		#navbar-search {
+			width: 300px;
+			color: $almost-white-text;
+		}
+
+		.input-group ul.dropdown-menu {
+			background: $dark-background;
+			border: $grey-border;
+
+			li.active a, li a {
+				color: $almost-white-text;
+			}
+
+			li a:hover {
+				cursor: pointer;
+			}
+		}
+
+		.input-group-addon {
+			padding: 0;
+			border: 0;
+			background: none;
+
+			button {
+				background-color: $cgn-blue;
+				border-radius: initial;
+			}
+		}
+	}
+
+	.navbar-collapse {
+		border-color: $grey-border-color;
+	}
+}
